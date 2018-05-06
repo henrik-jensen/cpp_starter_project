@@ -9,7 +9,7 @@ build_script:
     
     cmake c:\projects\source -G "Visual Studio 15"
     
-    cmake --build . --config "x64-Release"
+    cmake --build . --config "Release"
 
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
