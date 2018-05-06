@@ -6,10 +6,12 @@ build_script:
     mkdir build
 
     cd build
-    
     cmake c:\projects\source -G "Visual Studio 15 2017 Win64"
-    
     cmake --build . --config "Release"
-
+    cmake --build . --config "Debug"
+    cmake c:\projects\source -G "Visual Studio 15 2017"
+    cmake --build . --config "Release"
+    cmake --build . --config "Debug"
+    
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
